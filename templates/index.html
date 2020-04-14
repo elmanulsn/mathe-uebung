@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Matheübung{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Matheübung</a>
+        </div>    
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" action="">
+            Wieviel ist 5 + 4 <input type="text" name="ergebnis">
+            <input type="submit" name="Überprüfen" value="Submit">
+        </form>
+        {% if ergebnis %}
+            {% if ergebnis == '9' %}
+            <h1>Der Wert {{ ergebnis }} ist richtig!</h1>
+            {% else %}
+            <h1>Der Wert {{ ergebnis }} ist falsch!</h1>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
